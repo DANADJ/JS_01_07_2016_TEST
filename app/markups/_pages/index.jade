@@ -1,0 +1,39 @@
+include ../_common/_variables
+doctype html
+html(lang='ru-RU')
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		meta(name='autor' content='WEB-developer Gordienko Valentin')
+		meta(name='description' content='Test task of Javascript for a course LoftSchool.com')
+		title Тестовое задание Гордиенко Валентин по Javascript, для курса "Комплексное обучение Javascript" школы онлайн образования LoftSchool.com
+		link(rel='icon' type='image/vdn.microsoft.ico' href='images/favicon.ico' sizes='16x16')
+		// build:css css/vendor.min.css
+		// bower:css
+		// endbower
+		// endbuild
+		// build:css css/main.min.css
+		link(rel='stylesheet' href='css/main.css')
+		// endbuild
+		script(src='js/modernizr.min.js')
+		<!--[if lt IE8]>
+		<p class="oldBrowser">Ваш браузер устарел. Для корректного отображения сайта воспользуйтесь более современным браузером.</p>
+		<![endif]-->
+	body
+		div.wrapper
+			div.conteiner
+				div.logo
+					img.logo__img(src='images/logo.png')
+				div.accordeon
+					each point in accordion_array
+						div.accordeon-item
+							div.accordeon-item__header
+								div.accordeon-item__marker
+								div.accordeon-item__header-text #{point.header}
+							ol.accordeon-item__inner
+								each val in point.prop
+									li.accordeon-item__inner-item #{val}
+		// build:js js/main.min.js
+		script(src='js/main.js')
+		// endbuild

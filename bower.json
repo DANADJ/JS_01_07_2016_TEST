@@ -1,0 +1,23 @@
+{
+  "name": "JS_01_07_2016_TEST_(Gordienko Valentin)",
+  "authors": [
+    "Valentin Gordienko <danadj@yandex.ru>"
+  ],
+  "description": "Test task of Javascript for a LoftSchool.com",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "https://github.com/DANADJ/JS_01_07_2016_TEST",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "~4.1.1"
+  }
+}

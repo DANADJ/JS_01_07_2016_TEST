@@ -1,0 +1,154 @@
+//Цвет активного элемента аккордеона
+$active-accordeon-item: #ff8663;
+//Цвет чётного элемента аккордеона
+$even-accordeon-item: #e7e7e7;
+//Цвет нечетного элемента аккордеона
+$odd-accordeon-item: #696666;
+//Цвет текста чётного элемента аккордеона
+$even-accordeon-text: #4f4f4f;
+//Цвет текста нечётного элемента аккордеона
+$odd-accordeon-text: #ffffff;
+//Цвет текста активного элемента аккордеона
+$active-item-text: #ffffff;
+//Цвет текста вложенных элементов аккордеона
+$active-inner-text: #4f4f4f;
+//Цвет маркера активного элемента
+$unactive-marker: #ff8663;
+//Цвет маркера неактивного элемента
+$active-marker: #ffffff;
+//Высота окна браузера
+$height: 100%;
+//Ширина аккордиона
+$width: 460px;
+body {
+	min-height: 100%;
+	min-width: 100%;
+}
+
+.wrapper {
+	height: $height;
+	width: $width;
+	margin: 0 auto;
+}
+
+.conteiner {
+	position: absolute;
+	top: $height/2;
+	margin-top: $height/-8;
+	width: $width;
+}
+
+//*Оформление логотипа*/
+.logo {
+	width: $width;
+	height: 100%;
+	margin: 0 auto 19px;
+	text-align: center;
+
+	&__img {
+		height: 39px;
+		width: 216px;
+	}
+}
+
+/*Оформление аккордеона*/
+.accordeon {
+	margin: 0;
+	padding: 0;
+	width: $width;
+
+	&-item {
+		width: $width;
+		padding: 0;
+		margin: 0 0 5px 0;
+		border-radius: 21px;
+		cursor: pointer;
+		background-color: $even-accordeon-item;
+
+		&:nth-child(odd) &__header {
+			background-color: $odd-accordeon-item;
+			color: $odd-accordeon-text;
+
+			&:hover {
+				color: $active-item-text;
+				background-color: $active-accordeon-item;
+
+				& .accordeon-item__marker {
+					border: 7px solid transparent;
+					border-top: 12px solid $active-marker;
+				}
+			}
+		}
+		&:nth-child(even) &__header {
+			background-color: $even-accordeon-item;
+			color: $even-accordeon-text;
+
+			&:hover {
+				color: $active-item-text;
+				background-color: $active-accordeon-item;
+
+				& .accordeon-item__marker {
+					border: 7px solid transparent;
+					border-top: 12px solid $active-marker;
+				}
+			}
+		}
+		&__header {
+			position: relative;
+			width: $width - 42px;
+			padding: 10px 22px 10px 20px;
+			border-radius: 21px;
+
+			&-text {
+				width: $width - 70px;
+				margin: 0;
+				padding-right: 18px;
+				font: 500 15px "Fira Sans";
+				word-wrap: break-word;
+			}
+		}
+		&__marker {
+			position: absolute;
+			top: 50%;
+			right: 22px;
+			margin-top: -5px;
+			width: 0;
+			height: 0;
+			border: 7px solid transparent;
+			border-top: 12px solid $unactive-marker;
+		}
+		&__inner {
+			width: $width - 40px;
+			margin: 0;
+			padding: 10px 20px 6px 20px;
+			display: none;
+
+			&-item {
+				margin-bottom: 5px;
+				list-style-type: none;
+				list-style-position: inside;
+				line-height: 26px;
+				font: 300 15px "Fira Sans";
+				word-wrap: break-word;
+			}
+		}
+	}
+	/*Оформление активного блока*/
+	.active {
+
+		.accordeon-item__header {
+			color: $active-item-text;
+			background-color: $active-accordeon-item;
+
+			.accordeon-item__marker, &:hover .accordeon-item__marker {
+				top: 50%;
+				margin-top: -11px;
+				border: 7px solid transparent;
+				border-bottom: 12px solid $active-marker;
+			}
+		}
+		.accordeon-item__inner {
+			display: block;
+		}
+	}
+}
